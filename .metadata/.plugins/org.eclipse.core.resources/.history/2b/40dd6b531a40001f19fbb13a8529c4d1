@@ -1,0 +1,65 @@
+package page;
+
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+public class CandidatesPage {
+	
+private WebDriverWait wait;
+private WebDriver driver;
+	
+	// Declaration
+	@FindBy(xpath = "//div[@class='candidates-header']//button[text()='+ Candidate']")
+	private WebElement clickOnCandidateBtn;
+	
+	@FindBy(xpath = "//button[text()='Upload resume']/../input[@type='file']")
+	private WebElement clickOnUploadResumeBtn;
+	
+	@FindBy(xpath = "//input[@placeholder='Enter password']")
+	private WebElement enterPassword;
+	
+	@FindBy(xpath = "//button[text()='Sign in']")
+	private WebElement clickOnSignInBtn;
+	
+	@FindBy(xpath = "//p[text()='Sign in to your account']")
+	private WebElement scrollThepageTillSignInText;
+	
+	
+
+	
+	// Initialization
+	public CandidatesPage(WebDriver driver , WebDriverWait wait)
+	{
+		PageFactory.initElements(driver, this);
+		this.driver = driver;
+		this.wait = wait;
+	}
+
+	
+	// Utilization
+	public void login(String un, String pw) throws InterruptedException
+	{
+		//Thread.sleep(10000);
+		wait.until(ExpectedConditions.elementToBeClickable(clickSignIn));
+		clickSignIn.click();
+		wait.until(ExpectedConditions.visibilityOf(scrollThepageTillSignInText));
+		//Thread.sleep(10000);
+		
+		
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].scrollIntoView();", scrollThepageTillSignInText);
+		enterEmailID.sendKeys(un);
+		enterPassword.sendKeys(pw);
+		//Thread.sleep(5000);
+		wait.until(ExpectedConditions.elementToBeClickable(clickOnSignInBtn));
+		clickOnSignInBtn.click();
+	}
+    
+
+
+}

@@ -1,0 +1,33 @@
+package test;
+
+import org.testng.annotations.Test;
+
+import generic.BaseTest;
+import generic.Utilities;
+import page.CandidatesPage;
+
+public class CreateCandidateTest extends BaseTest{
+	
+	@Test
+	private void createCandidate() throws InterruptedException 
+	{
+		
+		//Take the input from Excel sheet
+		String enterFirstNameFromExcel = Utilities.getExcelData(EXCELDATA, "validLogin", 1, 0);
+		String enterLastNameFromExcel = Utilities.getExcelData(EXCELDATA, "validLogin", 1, 1);
+		String emailID = Utilities.getExcelData(EXCELDATA, "validLogin", 1, 2);
+		String enterPhoneNumber = Utilities.getExcelData(EXCELDATA, "validLogin", 1, 2);		
+		
+		CandidatesPage candidatesPage = new CandidatesPage(driver, wait);
+		candidatesPage.createCandidate();
+		candidatesPage.selectSource();
+		candidatesPage.addTags();
+		candidatesPage.addSkill();
+		candidatesPage.updateLinkdInProfile();
+		candidatesPage.createCandidateBtn();
+		candidatesPage.clickCloseButtonPostCreatingTheCandidate();
+		
+		
+	}
+
+}

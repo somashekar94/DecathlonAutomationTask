@@ -1,0 +1,25 @@
+package test;
+
+import org.testng.annotations.Test;
+
+import generic.BaseTest;
+import page.CandidatesPage;
+
+public class CreateCandidateTest extends BaseTest{
+	
+	@Test
+	private void createCandidate() throws InterruptedException 
+	{
+		CandidatesPage candidatesPage = new CandidatesPage(driver, wait);
+		candidatesPage.createCandidate();
+		candidatesPage.selectSource();
+		candidatesPage.addTags();
+		candidatesPage.addSkill();
+		candidatesPage.updateLinkdInProfile();
+		candidatesPage.createCandidateBtn();
+		candidatesPage.clickCloseButtonPostCreatingTheCandidate();
+		
+		
+	}
+
+}

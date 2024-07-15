@@ -1,0 +1,11 @@
+<suite name="Suite">
+  <test name="Test">
+	  <parameter name="Grid" value="No"/>
+	  <parameter name="GridURL" value="http://192.168.100.84:4444"/>
+	  <parameter name="Browser" value="Chrome"/>
+	  <parameter name="ENV" value="qa_env.properties"/>
+    <packages>
+      <package name="test"/>
+    </packages>
+  </test>
+</suite>

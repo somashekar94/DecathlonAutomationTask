@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+    
+    <listeners>
+   	  <listener class-name="generic.Listener"/>
+	</listeners> 
+	
+	<test name="Basic Smoke Testing">
+		
+		<parameter name="Grid" value="No" />
+		<parameter name="GridURL" value="http://192.168.100.84:4444" />
+		<parameter name="Browser" value="Chrome" />
+		<parameter name="ENV" value="qa_env.properties" />
+		<parameter name="Author" value="Jithendra Kumar"/>
+		
+		<classes>
+			<class name="test.ValidLoginTest" />
+			<class name="test.AddProjectTest" />
+		</classes>
+	</test>
+</suite>
+

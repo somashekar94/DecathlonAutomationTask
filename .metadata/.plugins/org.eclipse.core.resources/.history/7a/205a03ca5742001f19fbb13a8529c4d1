@@ -1,0 +1,24 @@
+package test;
+
+import org.testng.annotations.Test;
+
+import com.aventstack.extentreports.markuputils.ExtentColor;
+import com.aventstack.extentreports.markuputils.MarkupHelper;
+
+import generic.BaseTest;
+import page.CandidatesPage;
+
+public class DuplicateCandidateValidationTest extends BaseTest{
+	
+	@Test
+	private void pu() 
+	{
+		CandidatesPage candidatesPage = new CandidatesPage(driver, wait);
+		candidatesPage.errorValidationForEmailID();
+		
+		extentReports.createTest("TestCase5")
+		.fail("TestCase5 is Failed")
+		.info(MarkupHelper.createLabel("Highlight the Test Case in the COLOR", ExtentColor.RED));
+	}
+
+}
