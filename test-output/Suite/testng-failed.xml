@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
+  <listeners>
+    <listener class-name="generic.Listener"/>
+  </listeners>
+  <test thread-count="5" name="Basic Smoke Testing(failed)">
+    <parameter name="ENV" value="qa_env.properties"/>
+    <parameter name="Browser" value="Chrome"/>
+    <classes>
+      <class name="test.CreateCandidateTest">
+        <methods>
+          <include name="takeScreenshot"/>
+          <include name="initializeExtentReport"/>
+          <include name="closeBrowser"/>
+          <include name="generateExtentReport"/>
+          <include name="launchApplication"/>
+          <include name="createCandidate"/>
+        </methods>
+      </class> <!-- test.CreateCandidateTest -->
+      <class name="test.UploadResumeTest">
+        <methods>
+          <include name="takeScreenshot"/>
+          <include name="initializeExtentReport"/>
+          <include name="closeBrowser"/>
+          <include name="generateExtentReport"/>
+          <include name="launchApplication"/>
+          <include name="uploadResume"/>
+        </methods>
+      </class> <!-- test.UploadResumeTest -->
+      <class name="test.DuplicateCandidateValidationTest">
+        <methods>
+          <include name="takeScreenshot"/>
+          <include name="initializeExtentReport"/>
+          <include name="closeBrowser"/>
+          <include name="generateExtentReport"/>
+          <include name="launchApplication"/>
+          <include name="duplicateCandidateValidation"/>
+        </methods>
+      </class> <!-- test.DuplicateCandidateValidationTest -->
+    </classes>
+  </test> <!-- Basic Smoke Testing(failed) -->
+</suite> <!-- Failed suite [Suite] -->
